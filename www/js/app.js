@@ -75,7 +75,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             url: '/chats',
             views: {
                 'tab-chats': {
-                    templateUrl: 'templates/tab-chats.html',
+                    templateUrl: 'templates/tab-stats.html',
                     controller: 'ChatsCtrl'
                 }
             }
@@ -124,7 +124,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             url: '/friends',
             views: {
                 'tab-friends': {
-                    templateUrl: 'templates/tab-friends.html',
+                    templateUrl: 'templates/tab-plans.html',
                     controller: 'FriendsCtrl'
                 }
             }
@@ -164,7 +164,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             url: '/account',
             views: {
                 'tab-account': {
-                    templateUrl: 'templates/tab-account.html',
+                    templateUrl: 'templates/tab-profile.html',
                     controller: 'AccountCtrl'
                 }
             }
@@ -173,7 +173,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         url: '/community',
         views: {
           'tab-community': {
-            templateUrl: 'templates/tab-community.html',
+            templateUrl: 'templates/tab-myplan.html',
             controller: 'CommunityCtrl'
           }
         }
