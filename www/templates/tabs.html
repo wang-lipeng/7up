@@ -1,0 +1,35 @@
+
+    <ion-tabs class="abs-dark tabs-icon-top tabs-color-active-positive">
+
+        <!-- Chats Tab -->
+        <ion-tab title="{{ 'tab.chat' | translate }}" icon-off="ion-ios7-chatboxes-outline" icon-on="ion-ios7-chatboxes"
+                 href="#/tab/chats"
+                 badge="chatCount" badge-style="badge-assertive"
+                 class="subtab-icon">
+            <ion-nav-view name="tab-chats"></ion-nav-view>
+        </ion-tab>
+
+        <!-- Friends Tab -->
+        <ion-tab title="{{ 'tab.friends' | translate }}" icon-off="ion-ios7-contact-outline" icon-on="ion-ios7-contact"
+                 href="#/tab/friends" class="subtab-icon">
+            <ion-nav-view name="tab-friends"></ion-nav-view>
+        </ion-tab>
+
+        <!-- Community Tab-->
+        <ion-tab title="{{ 'tab.community'|translate }}" icon-off="ion-ios7-pulse" icon-on="ion-ios7-pulse-strong"
+                 href="#/tab/community" class="subtab-icon">
+            <ion-nav-view name="tab-community"></ion-nav-view>
+        </ion-tab>
+
+        <!-- Circle Tab -->
+        <ion-tab title="{{ 'tab.social' | translate }}" icon-off="ion-ios7-albums-outline" icon-on="ion-ios7-albums"
+                 href="#/tab/social" class="subtab-icon">
+            <ion-nav-view name="tab-social"></ion-nav-view>
+        </ion-tab>
+
+        <!-- Account Tab -->
+        <ion-tab title="{{ 'tab.me' | translate }}" icon-off="ion-ios7-gear-outline" icon-on="ion-ios7-gear"
+                 href="#/tab/account" class="subtab-icon">
+            <ion-nav-view name="tab-account"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>

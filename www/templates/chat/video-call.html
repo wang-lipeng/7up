@@ -1,0 +1,34 @@
+<ion-view title="{{'video.call'| translate}}" hide-back-button="true">
+    <ion-content style="background-color: #f2f2f2" on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
+        <div class="calling-container" ng-if="isCalling && !callInProgress">
+            <p style="font-size: 18pt">{{'video.calling_to'|translate}} <span class="balanced">Yikun</span>...</p>
+
+            <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
+                {{'video.cancel'|translate}}
+            </button>
+        </div>
+
+        <div class="calling-container" ng-if="!isCalling && !callInProgress">
+            <p style="font-size: 18pt"><span class="balanced">Xiaoxue</span> {{'video.is_calling'|translate}}</p>
+
+            <button class="button button-positive" ng-click="answer()" style="font-size: 18pt">
+                {{'video.answer'|translate}}
+            </button>
+
+            <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
+                {{'video.ignore'|translate}}
+            </button>
+        </div>
+
+        <div class="calling-container" ng-if="callInProgress">
+            <p style="font-size: 18pt">
+                {{'video.process'|translate}}
+            </p>
+            <button class="button button-assertive" ng-click="end()" style="font-size: 18pt">
+                {{'video.end'|translate}}
+            </button>
+        </div>
+
+        <div ng-show="false"><video-view></video-view></div>
+    </ion-content>
+</ion-view>

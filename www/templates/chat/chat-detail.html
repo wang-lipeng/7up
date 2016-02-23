@@ -1,0 +1,48 @@
+<ion-view view-title="{{friend.name}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-outline button-positive icon-left icon ion-person-stalker" style="font-size: 18pt"
+                ng-show="isGroupChat"
+                ng-click="manageGroup()">&nbsp;{{'chat.groups'|translate}}</button>
+
+        <button class="button button-positive"
+                ng-show="!isGroupChat"
+                ui-sref="single-page.rtc-chat({ isCalling: true, userId: counterParty })">
+            <i class="icon ion-ios7-telephone" style="font-size: 18pt"> &nbsp;{{'chat.call'|translate}}</i>
+        </button>
+    </ion-nav-buttons>
+    <ion-content style="background-color: #f2f2f2" has-header="true" has-footer="true" has-tabs="true"
+                 on-swipe-left="hideTime = false"
+                 on-swipe-right="hideTime = true"
+                 padding="true" style="text-align: center">
+        <!--ion-content's text-align is used to center system_message-->
+        <button class="button button-clear button-positive button-block"
+                ng-show="canLoadMore"
+                ng-click="loadMoreChatHistory();" style="font-size: 18pt">
+            {{ 'chat.load_more' | translate }}
+        </button>
+        <span ng-show="!canLoadMore" class="system_message">
+            {{ 'chat.no_more_message' | translate }}
+        </span>
+        <div ng-repeat="message in messages"
+             ng-class="{from_me: message.from_user_id == myId}"
+             class="messages">
+            <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}" ng-click="playAudio(message)">
+                <img ng-src="{{(message.from_user_id == myId && serverIconAddress + myId  || serverIconAddress + message.from_user_id) + '.jpg'}}"
+                     class="message_icon">
+                <span class="message_body">{{ message.text_content }}</span>
+            </div>
+
+            <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">
+                {{message.timestamp}}
+            </div>
+        </div>
+        <div style="height: 70px;"></div>
+    </ion-content>
+
+    <div class="bar bar-footer has-tabs bar-light" style="margin-bottom: 30pt">
+        <div class="title"><button class="button button-block button-positive" style="font-size: 18pt"
+                                   ng-click="record()">
+            {{ 'chat.hold_to_record' | translate }}
+        </button></div>
+    </div>
+</ion-view>

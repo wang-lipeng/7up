@@ -1,0 +1,82 @@
+<ion-view view-title="Calendar">
+    <ion-content class="padding" style="background-color: #f2f2f2">
+        <div class="container-fluid">
+
+            <div class="row" id="demo">
+
+                <div class="col-md-12">
+                    <h2 class="text-center" style="font-size: 18pt">{{ vm.calendarTitle }}</h2>
+
+                    <div class="row">
+
+                        <div class="col-md-5 text-center">
+                            <div class="btn-group" style="width: 300px;" >
+
+                                <button
+                                        class="btn" style="background: #2C63F0; color: white; font-size: 18pt"
+                                        mwl-date-modifier
+                                        date="vm.calendarDay"
+                                        decrement="vm.calendarView"
+                                        >
+                                    {{'calendar.previous'| translate}}
+                                </button>
+                                <button
+                                        class="btn" style="background: #f7f7f7; color: #2C63F0; font-size: 18pt"
+                                        mwl-date-modifier
+                                        date="vm.calendarDay"
+                                        set-to-today
+                                        >
+                                    {{'calendar.today'| translate}}
+
+                                </button>
+                                <button
+                                        class="btn" style="background: #2C63F0; color: white; font-size: 18pt"
+                                        mwl-date-modifier
+                                        date="vm.calendarDay"
+                                        increment="vm.calendarView"
+                                        >
+                                    {{'calendar.next'| translate}}
+
+                                </button>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="col-md-7 text-center" >
+                            <div class="btn-group" style="width: 300px;" >
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'year'">{{'calendar.year'|translate}}</label>
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'month'">{{'calendar.month'|translate}}</label>
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'week'">{{'calendar.week'|translate}}</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <mwl-calendar
+                            events="vm.events"
+                            view="vm.calendarView"
+                            view-title="vm.calendarTitle"
+                            current-day="vm.calendarDay"
+                            on-event-click="vm.eventClicked(calendarEvent)"
+                            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                            edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+                            delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+                            on-edit-event-click="vm.eventEdited(calendarEvent)"
+                            on-delete-event-click="vm.eventDeleted(calendarEvent)"
+                            auto-open="true"
+                            day-view-start="06:00"
+                            day-view-end="22:00"
+                            day-view-split="30"
+                            cell-modifier="vm.modifyCell(calendarCell)">
+                    </mwl-calendar>
+
+                    <br><br><br>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

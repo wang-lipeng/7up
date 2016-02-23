@@ -1,0 +1,11 @@
+{
+  "name": "SeniorConnect",
+  "app_id": "140c85d8",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}
